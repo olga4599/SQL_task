@@ -1,0 +1,6 @@
+SELECT Customers. CustomerID, CustomerName, COUNT(OrderID) AS OrderAmount, max(OrderDate) AS OrderDate 
+FROM Customers JOIN Orders 
+ON Customers.CustomerID = Orders.CustomerID
+GROUP BY CustomerName
+HAVING COUNT(OrderID) > 5
+ORDER BY OrderAmount DESC;
